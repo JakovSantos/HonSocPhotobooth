@@ -16,7 +16,19 @@ export function resolveShareBaseUrl(configured: string | undefined, origin: stri
   const usable = (value: string): string | null => {
     try {
       const url = new URL(value);
-      return url.protocol === "https:" || url.protocol === "http:" ? url.origin : null;
+      if (url.protocol !== "https:" && url.protocol !== "http:") return null;
+
+      // Canonicalize Vercel preview deployment URLs to the public production domain
+      // e.g. project-git-main-username.vercel.app -> project.vercel.app
+      if (url.hostname.endsWith(".vercel.app")) {
+        const subdomain = url.hostname.replace(/\.vercel\.app$/, "");
+        if (subdomain.includes("-git-")) {
+          const rootProject = subdomain.split("-git-")[0];
+          return `${url.protocol}//${rootProject}.vercel.app`;
+        }
+      }
+
+      return url.origin;
     } catch {
       return null;
     }
