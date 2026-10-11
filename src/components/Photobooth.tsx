@@ -611,7 +611,7 @@ function Results({
   };
 
   return (
-    <section className="flex flex-1 flex-col items-center gap-6 pb-8 lg:flex-row lg:items-start lg:justify-center lg:gap-10">
+    <section className="my-auto flex flex-col items-center gap-6 py-8 lg:flex-row lg:items-start lg:justify-center lg:gap-10">
       {/* Left: Frame Preview */}
       <div className="w-full max-w-md">
         <h2 className="mb-4 text-center font-title text-2xl sm:text-3xl text-ivory text-glow font-bold">
