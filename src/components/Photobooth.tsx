@@ -186,17 +186,9 @@ function Splash({ onStart, starting, error }: { onStart: () => void; starting: b
         className="mb-6 h-36 sm:h-52 w-auto max-w-full object-contain drop-shadow-[0_4px_18px_rgba(212,175,55,0.45)]"
       />
 
-      <p className="font-title text-xs sm:text-sm uppercase tracking-[0.4em] text-amber-300 font-semibold">
-        AUF College of Computer Studies
-      </p>
-
-      <h1 className="mt-3 font-title text-3xl sm:text-5xl font-black text-ivory text-glow">
+      <h1 className="mt-4 font-title text-3xl sm:text-5xl font-black text-ivory text-glow">
         AUF CCS HonSoc Photobooth
       </h1>
-
-      <p className="mt-3 font-title text-sm sm:text-lg italic text-amber-200/80">
-        CCS Month 2026 Commemorative Royal Photobooth
-      </p>
 
       <p className="mt-4 text-xs sm:text-sm text-stone-300 max-w-md mx-auto leading-relaxed">
         Step into the sacred grove. Capture 4 honorable poses, seal them within the royal frame, 

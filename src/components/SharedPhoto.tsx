@@ -124,10 +124,10 @@ export function SharedPhoto({ id, onGoBack }: SharedPhotoProps) {
       <main className="mx-auto flex w-full max-w-md flex-col items-center gap-5 px-4 py-4 z-10">
         <div className="text-center">
           <h1 className="font-title text-2xl sm:text-3xl text-ivory text-glow font-bold">
-            Your Royal Keepsake
+            AUF CCS HonSoc Photobooth
           </h1>
           <p className="mt-1 text-xs text-amber-200/80">
-            AUF CCS Month 2026 • The Legend of HonSoc
+            HonSoc Keepsake
           </p>
         </div>
 
