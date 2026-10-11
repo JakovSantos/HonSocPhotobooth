@@ -23,7 +23,7 @@ export const photoboothConfig = {
     { x: 353, y: 514, width: 238, height: 274 },
   ],
   photoCount: 4,
-  countdownSeconds: 3,
+  countdownSeconds: 5,
   idleTimeoutSeconds: 60,
   idleWarningSeconds: 10,
   storageBucket: "photobooth",
