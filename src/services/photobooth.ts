@@ -29,6 +29,16 @@ export function shareBaseUrl(): string {
     (import.meta.env["VITE_APP_URL"] as string | undefined) ||
     (import.meta.env["VITE_PUBLIC_URL"] as string | undefined);
   const origin = typeof window !== "undefined" ? window.location.origin : "";
+
+  if (configured) {
+    return resolveShareBaseUrl(configured, origin);
+  }
+
+  // When testing on PC at localhost, encode the local Wi-Fi network IP so phones can scan and open it
+  if (typeof window !== "undefined" && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")) {
+    return `http://192.168.1.49:${window.location.port || 4173}`;
+  }
+
   return resolveShareBaseUrl(configured, origin);
 }
 
@@ -249,6 +259,9 @@ export async function uploadPhoto(blob: Blob): Promise<SharedPhoto> {
 
 export async function startCamera(facingMode: "user" | "environment" = "user"): Promise<MediaStream> {
   if (!navigator.mediaDevices?.getUserMedia) {
+    if (typeof window !== "undefined" && window.location.hostname !== "localhost" && window.location.hostname !== "127.0.0.1" && window.location.protocol !== "https:") {
+      throw new Error("Browsers block cameras on network IP addresses over HTTP. On this computer, please open the photobooth at http://localhost:4173 to use your webcam!");
+    }
     throw new Error("This browser can't use the camera. Try Chrome or Safari over HTTPS.");
   }
   try {

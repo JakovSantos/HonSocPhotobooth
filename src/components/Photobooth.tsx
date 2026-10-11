@@ -179,22 +179,19 @@ export function Photobooth() {
 function Splash({ onStart, starting, error }: { onStart: () => void; starting: boolean; error: string | null }) {
   return (
     <section className="m-auto flex max-w-xl flex-col items-center text-center animate-reveal">
-      {/* Official AUF CCS Honor Society Logo - Strictly preserved original artwork and proportions */}
-      <div className="relative mb-6 p-3 rounded-2xl bg-[#091510]/80 border border-amber-500/20 shadow-[0_0_35px_rgba(212,175,55,0.25)]">
-        <img
-          src={cfg.logoUrl}
-          alt="AUF CCS Honor Society official logo"
-          className="h-32 sm:h-44 w-auto max-w-full object-contain"
-          style={{ filter: "drop-shadow(0 4px 14px rgba(212, 175, 55, 0.35))" }}
-        />
-      </div>
+      {/* Official AUF CCS Honor Society Logo - Direct image without background container */}
+      <img
+        src={cfg.logoUrl}
+        alt="AUF CCS Honor Society official logo"
+        className="mb-6 h-36 sm:h-52 w-auto max-w-full object-contain drop-shadow-[0_4px_18px_rgba(212,175,55,0.45)]"
+      />
 
       <p className="font-title text-xs sm:text-sm uppercase tracking-[0.4em] text-amber-300 font-semibold">
         AUF College of Computer Studies
       </p>
 
       <h1 className="mt-3 font-title text-3xl sm:text-5xl font-black text-ivory text-glow">
-        THE LEGEND OF HONSOC
+        AUF CCS HonSoc Photobooth
       </h1>
 
       <p className="mt-3 font-title text-sm sm:text-lg italic text-amber-200/80">
